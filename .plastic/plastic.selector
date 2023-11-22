@@ -1,0 +1,4 @@
+repository "StartupTake2@Franjevac77@cloud"
+  path "/"
+    br "/main"
+    co "/main"

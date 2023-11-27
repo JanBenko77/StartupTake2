@@ -57,14 +57,8 @@ public class NewBehaviourScript : MonoBehaviour
                     Vector3 scaledEuler = Vector3.Scale(targetRotationEuler, obj.transform.up.normalized);
                     Quaternion targetRotation = Quaternion.Euler(scaledEuler);
                     obj.transform.rotation = obj.transform.rotation * targetRotation;
-
                 }
             }
         }
-    }
-
-    private void RayCastHit()
-    {
-        
     }
 }

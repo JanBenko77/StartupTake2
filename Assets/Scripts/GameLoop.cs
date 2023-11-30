@@ -21,6 +21,9 @@ public class GameLoop : MonoBehaviour
     [SerializeField]
     public TMP_Text InfoText;
 
+    [SerializeField]
+    private List<Character> characters;
+
     private void Start()
     {
         stateDictionary.Add(GameState.PlacingArena, new PlacingArenaState(this, GetComponent<PlaceObject>()));
@@ -32,6 +35,12 @@ public class GameLoop : MonoBehaviour
         currentState = GameState.PlacingArena;
         stateDictionary[currentState].Enter();
         InfoText.text = "Placing arena state";
+
+        characters = new List<Character>(GameObject.FindObjectsOfType<Character>());
+        foreach (Character character in characters)
+        {
+            character.Initialize(character.characterData);
+        }
     }
 
     private void Update()

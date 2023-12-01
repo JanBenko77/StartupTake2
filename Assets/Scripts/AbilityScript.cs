@@ -95,7 +95,7 @@ public class AbilityScript : MonoBehaviour
     {
         character.attack *= 2;
         BasicAttack(character, targets);
-        character.attack /= 2;
+        character.ResetAttack();
         Debug.Log("Activated Double Attack");
     }
 
@@ -113,7 +113,7 @@ public class AbilityScript : MonoBehaviour
         {
             if (attacker.target[0] == teammate)
             {
-                defender.SwitchTarget(defender);
+                attacker.SwitchTarget(defender);
             }
             else
             {
@@ -124,7 +124,7 @@ public class AbilityScript : MonoBehaviour
         {
             if (attacker.target[0] == teammate)
             {
-                defender.SwitchTarget(defender);
+                attacker.SwitchTarget(defender);
             }
             else
             {
@@ -135,7 +135,7 @@ public class AbilityScript : MonoBehaviour
         {
             if (attacker.target[0] == teammate)
             {
-                defender.SwitchTarget(defender);
+                attacker.SwitchTarget(defender);
             }
             else
             {

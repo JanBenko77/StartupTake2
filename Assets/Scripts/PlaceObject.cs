@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using EnhancedTouch = UnityEngine.InputSystem.EnhancedTouch;
 
 [RequireComponent(typeof(ARRaycastManager), typeof(ARPlaneManager))]
-public class NewBehaviourScript : MonoBehaviour
+public class PlaceObject : MonoBehaviour
 {
     [SerializeField]
     private GameObject prefab;
+
+    public bool isPlaced = false;
 
     private ARRaycastManager aRRaycastManager;
     private ARPlaneManager aRPlaneManager;
@@ -19,6 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         aRPlaneManager = GetComponent<ARPlaneManager>();
         aRRaycastManager = GetComponent<ARRaycastManager>();
+        this.enabled = false;
     }
 
     private void OnEnable()
@@ -57,6 +61,7 @@ public class NewBehaviourScript : MonoBehaviour
                     Vector3 scaledEuler = Vector3.Scale(targetRotationEuler, obj.transform.up.normalized);
                     Quaternion targetRotation = Quaternion.Euler(scaledEuler);
                     obj.transform.rotation = obj.transform.rotation * targetRotation;
+                    isPlaced = true;
                 }
             }
         }

@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//From the TurnOrder arraylist, take the first character and have them take their turn
-//Set the character to active
-//Allow the player input for that character
-//Change player UI - display character stats, abilities, etc.
-//When a player clicks on an action, have them select a target if needed
-//When the player confirms their action, go to ApplyChanges
+//Allow player input to choose an action for each character
+//Enemy chooses random action for each character
+//Check if a character can use an ability
 
 public class CharacterTurnsState : BaseState
 {

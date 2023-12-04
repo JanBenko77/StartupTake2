@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
+public enum CharacterType
+{
+    Player,
+    Enemy
+}
 
 public enum MythType
 {
@@ -35,4 +39,6 @@ public class CharacterData : ScriptableObject
     public Ascensions Ascension;
     public int ability1Cost;
     public int ability2Cost;
+
+    public CharacterType characterType;
 }

@@ -29,3 +29,4 @@ MonoBehaviour:
   Ascension: 0
   ability1Cost: 0
   ability2Cost: 0
+  characterType: 1

@@ -73,6 +73,7 @@ public class Character : MonoBehaviour
         abilityScript = FindObjectOfType<AbilityScript>();
     }
 
+    //Here goes the code for checking wether a player has enough mana
     public void BasicAttack(List<Character> targets)
     {
         abilityScript.UseAbility(this, Abilities.BasicAttack, targets, 1);//check this when solved

@@ -21,8 +21,8 @@ public class GameLoop : MonoBehaviour
     [SerializeField]
     public TMP_Text InfoText;
 
-    [SerializeField]
-    private List<Character> characters;
+    //[SerializeField]
+    public List<Character> characters;
 
     private void Start()
     {

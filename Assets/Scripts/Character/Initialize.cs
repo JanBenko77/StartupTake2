@@ -5,7 +5,7 @@ using UnityEngine;
 public class Initialize : MonoBehaviour
 {
     [SerializeField]
-    private List<Character> characters;
+    public List<Character> characters;
 
     void Start()
     {

@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
-
-//Reset all player energy to MaxEnergy
-//Maybe increment max energy / up to designers
 
 public class ResetPlayerEnergyState : BaseState
 {
     private GameLoop gameLoop;
+
+    bool stateIsOver = false;
+
+    bool energyReset = false;
 
     public ResetPlayerEnergyState(GameLoop loop)
     {
@@ -16,7 +18,11 @@ public class ResetPlayerEnergyState : BaseState
 
     override public void Enter()
     {
-        gameLoop.StartCoroutine(TransitionCoroutine());
+        gameLoop.InfoText.text = "Resetting player energy";
+        gameLoop.StartCoroutine(EnterCoroutine());
+        //gameLoop.IncrementEnergy(2);  //Turn this on to increment energy each turn
+        gameLoop.ResetEnergy();
+        energyReset = true;
     }
 
     override public IEnumerator EnterCoroutine()
@@ -26,26 +32,32 @@ public class ResetPlayerEnergyState : BaseState
 
     private IEnumerator TransitionCoroutine()
     {
-        yield return new WaitForSeconds(2.0f);
+        gameLoop.InfoText.text = "Starting transition into thing";
 
-        if (ConditionMet())
+        yield return new WaitForSeconds(2.0f);
+    }
+
+    override public void Update()
+    {
+        if (ConditionMet() && !stateIsOver)
         {
             gameLoop.TransitionToState(GameState.CharacterTurns);
         }
     }
 
-    override public void Update()
-    {
-        //Update thing here
-    }
-
     override public void Exit()
     {
-        //Exiting stuff
+        stateIsOver = true;
+        gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
     bool ConditionMet()
     {
-        return true;
+        if (energyReset)
+        {
+            gameLoop.InfoText.text = "Turn order determined";
+            return true;
+        }
+        return false;
     }
 }

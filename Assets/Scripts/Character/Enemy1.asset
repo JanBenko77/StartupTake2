@@ -19,13 +19,13 @@ MonoBehaviour:
   characterLevel: 161
   maxHealth: 100
   speed: 111
-  attack: 0
+  attack: 10
   defense: 5
   dodge: 10
   accuracy: 100
   Passive: 0
-  Ability1: 0
-  Ability2: 0
+  Ability1: 3
+  Ability2: 2
   Ascension: 0
   ability1Cost: 0
   ability2Cost: 0

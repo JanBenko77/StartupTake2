@@ -11,7 +11,8 @@ public enum GameState
     DetermineTurnOrder,
     ResetPlayerEnergy,
     CharacterTurns,
-    ApplyChanges
+    ApplyChanges,
+    AfterBattle
 }
 public class GameLoop : MonoBehaviour
 {
@@ -24,6 +25,18 @@ public class GameLoop : MonoBehaviour
     //[SerializeField]
     public List<Character> characters;
 
+    private int playerHealth = 3;
+    private int playerEnergy = 10;
+    [SerializeField]
+    private int playerMaxEnergy = 10;
+
+    private int enemyHealth = 3;
+    private int enemyEnergy = 10;
+    [SerializeField]
+    private int enemyMaxEnergy = 10;
+
+
+
     private void Start()
     {
         stateDictionary.Add(GameState.PlacingArena, new PlacingArenaState(this, GetComponent<PlaceObject>()));
@@ -31,6 +44,7 @@ public class GameLoop : MonoBehaviour
         stateDictionary.Add(GameState.ResetPlayerEnergy, new ResetPlayerEnergyState(this));
         stateDictionary.Add(GameState.CharacterTurns, new CharacterTurnsState(this));
         stateDictionary.Add(GameState.ApplyChanges, new ApplyChangesState(this));
+        stateDictionary.Add(GameState.AfterBattle, new AfterBattleState(this));
 
         currentState = GameState.PlacingArena;
         stateDictionary[currentState].Enter();
@@ -51,18 +65,38 @@ public class GameLoop : MonoBehaviour
     public void TransitionToState(GameState newState)
     {
         StartCoroutine(TransitionToStateCoroutine(newState));
-        InfoText.text = "Transitioning state to" + newState.ToString();
+        InfoText.text = "Transitioning state to " + newState.ToString();
     }
 
     private IEnumerator TransitionToStateCoroutine(GameState newState)
     {
         stateDictionary[currentState].Exit();
-        InfoText.text = "Or this is getting called?";
+
         yield return StartCoroutine(stateDictionary[newState].EnterCoroutine());
 
         currentState = newState;
 
         stateDictionary[currentState].Enter();
-        InfoText.text = "This getting called?";
+    }
+
+    public void IncrementEnergy(int incrementAmount)
+    {
+        playerMaxEnergy += incrementAmount;
+        if (playerMaxEnergy > 15)
+        {
+            playerMaxEnergy = 15;
+        }
+        
+        enemyMaxEnergy += incrementAmount;
+        if (enemyMaxEnergy > 15)
+        {
+            enemyMaxEnergy = 15;
+        }
+    }
+
+    public void ResetEnergy()
+    {
+        playerEnergy = playerMaxEnergy;
+        enemyEnergy = enemyMaxEnergy;
     }
 }

@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 1068152324}
   - component: {fileID: 1068152323}
   - component: {fileID: 1068152327}
+  - component: {fileID: 1068152328}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -835,6 +836,19 @@ MonoBehaviour:
   ability1Cost: 0
   ability2Cost: 0
   target: []
+--- !u!114 &1068152328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068152322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3c3678e81e5354f8781888676301c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
 --- !u!1 &1243384249
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +920,7 @@ GameObject:
   - component: {fileID: 2001774556}
   - component: {fileID: 2001774555}
   - component: {fileID: 2001774559}
+  - component: {fileID: 2001774560}
   m_Layer: 0
   m_Name: EnemyGuy
   m_TagString: Untagged
@@ -1033,6 +1048,19 @@ MonoBehaviour:
   ability1Cost: 0
   ability2Cost: 0
   target: []
+--- !u!114 &2001774560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001774554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3c3678e81e5354f8781888676301c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
 --- !u!1 &2026174231
 GameObject:
   m_ObjectHideFlags: 0

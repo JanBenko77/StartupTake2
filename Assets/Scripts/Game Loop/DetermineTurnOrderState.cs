@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
-//Have an <ArrayList>TurnOrder of all inBattle characters
-//Take the speed of each character and add it to the arraylist
-//Sort the arraylist from highest to lowest
-//At the end check if there was a tie
-//If there was a tie, have the characters randomly choose who goes first
-//If a Quick Action was used, place that character at the front of the arraylist
 
 public class DetermineTurnOrderState : BaseState
 {
     private GameLoop gameLoop;
+
+    public static List<Character> turnOrder = new List<Character>();
+
+    bool stateIsOver = false;
+
+    bool orderDetermined = false;
 
     public DetermineTurnOrderState(GameLoop loop)
     {
@@ -20,7 +20,18 @@ public class DetermineTurnOrderState : BaseState
 
     override public void Enter()
     {
-        gameLoop.StartCoroutine(TransitionCoroutine());
+        gameLoop.InfoText.text = "Determining turn order";
+        gameLoop.StartCoroutine(EnterCoroutine());
+        turnOrder.Clear();
+        foreach (Character character in gameLoop.characters)
+        {
+            if (character.inBattle)
+            {
+                turnOrder.Add(character);
+            }
+        }
+        turnOrder = turnOrder.OrderByDescending(c => c.characterData.speed).ToList();
+        orderDetermined = true;
     }
 
     override public IEnumerator EnterCoroutine()
@@ -30,26 +41,32 @@ public class DetermineTurnOrderState : BaseState
 
     private IEnumerator TransitionCoroutine()
     {
-        yield return new WaitForSeconds(2.0f);
+        gameLoop.InfoText.text = "Starting transition into thing";
 
-        if (ConditionMet())
-        {
-            gameLoop.TransitionToState(GameState.ResetPlayerEnergy);
-        }
+        yield return new WaitForSeconds(2.0f);
     }
 
     override public void Update()
     {
-        //Update thing here
+        if (ConditionMet() && !stateIsOver)
+        {
+            gameLoop.TransitionToState(GameState.DetermineTurnOrder);
+        }
     }
 
     override public void Exit()
     {
-        //Exiting stuff
+        stateIsOver = true;
+        gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
-    bool ConditionMet()
+    bool ConditionMet() //condition is if the turn order is determined
     {
+        if (orderDetermined)
+        {
+            gameLoop.InfoText.text = "Turn order determined";
+            return true;
+        }
         return false;
     }
 }

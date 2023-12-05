@@ -10,6 +10,8 @@ public class CharacterTurnsState : BaseState
 {
     private GameLoop gameLoop;
 
+    bool stateIsOver = false;
+
     public CharacterTurnsState(GameLoop loop)
     {
         gameLoop = loop;
@@ -17,7 +19,9 @@ public class CharacterTurnsState : BaseState
 
     override public void Enter()
     {
-        gameLoop.StartCoroutine(TransitionCoroutine());
+        gameLoop.InfoText.text = "Resetting player energy";
+        gameLoop.StartCoroutine(EnterCoroutine());
+        //Change UI to allow player to choose an action for each character
     }
 
     override public IEnumerator EnterCoroutine()
@@ -27,26 +31,32 @@ public class CharacterTurnsState : BaseState
 
     private IEnumerator TransitionCoroutine()
     {
-        yield return new WaitForSeconds(2.0f);
+        gameLoop.InfoText.text = "Starting transition into thing";
 
-        if (ConditionMet())
+        yield return new WaitForSeconds(2.0f);
+    }
+
+    override public void Update()
+    {
+        if (ConditionMet() && !stateIsOver)
         {
             gameLoop.TransitionToState(GameState.ApplyChanges);
         }
     }
 
-    override public void Update()
-    {
-        //Update thing here
-    }
-
     override public void Exit()
     {
-        //Exiting stuff
+        stateIsOver = true;
+        gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
     bool ConditionMet()
     {
-        return true;
+        if (stateIsOver)//This should be SelectAction.actionsSelected
+        {
+            gameLoop.InfoText.text = "Turn order determined";
+            return true;
+        }
+        return false;
     }
 }

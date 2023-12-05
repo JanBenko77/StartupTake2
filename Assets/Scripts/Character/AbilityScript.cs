@@ -61,7 +61,7 @@ public class AbilityScript : MonoBehaviour
                 break;
 
             case Abilities.Heal:
-                Heal(character, targets, 0);
+                Heal(character, targets, 30);
                 break;
 
             case Abilities.Invlunerable:
@@ -161,7 +161,7 @@ public class AbilityScript : MonoBehaviour
     {
         if (BuffCheck(character, targets)[0])
         {
-            targets[0].HealDamage(30);
+            targets[0].HealDamage(healAmount);
             if (targets[0].currentHealth > targets[0].maxHealth)
             {
                 targets[0].currentHealth = targets[0].maxHealth;

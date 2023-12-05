@@ -43,6 +43,8 @@ public class Character : MonoBehaviour
     Abilities lastAbilityUsed;
     int lastAbilityUsedCounter;
     public List<Character> target;
+    public Character teammate;
+    public bool inBattle = false;
 
     public void Initialize(CharacterData data)
     {
@@ -71,6 +73,7 @@ public class Character : MonoBehaviour
         ability2Cost = data.ability2Cost;
 
         abilityScript = FindObjectOfType<AbilityScript>();
+        inBattle = true;
     }
 
     //Here goes the code for checking wether a player has enough mana
@@ -148,7 +151,92 @@ public class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Character " + characterName + " died");
+            currentHealth = 0;
+            HandleDeathAndSwitch();
+        }
     }
+
+    public void HandleDeathAndSwitch()
+    {
+        inBattle = false;
+        foreach (Character character in DetermineTurnOrderState.turnOrder)
+        {
+            if (character.characterData.characterType == CharacterType.Player && character.inBattle)
+            {
+                if (character.target[0] == this)
+                {
+                    if (this.characterData.characterType == CharacterType.Enemy)
+                    {
+                        FindTeammate();
+                        if (this.teammate.inBattle)
+                        {
+                            character.SwitchTarget(this.teammate);
+                        }
+                        else
+                        {
+                            //End the turn early, go to switch state
+                        }
+                    }
+                    else if (this.characterData.characterType == CharacterType.Player)
+                    {
+                        character.SwitchTarget(character);
+                    }
+                }
+            }
+
+            if (character.characterData.characterType == CharacterType.Enemy && character.inBattle)
+            {
+                if (character.target[0] == this)
+                {
+                    if (this.characterData.characterType == CharacterType.Player)
+                    {
+                        FindTeammate();
+                        if (this.teammate.inBattle)
+                        {
+                            character.SwitchTarget(this.teammate);
+                        }
+                        else
+                        {
+                            //End the turn early, go to switch state
+                        }
+                    }
+                    else if (this.characterData.characterType == CharacterType.Enemy)
+                    {
+                        character.SwitchTarget(character);
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    //Make a method that's going to find this character's teammate
+
+    public void FindTeammate()
+    {
+        foreach (Character character in DetermineTurnOrderState.turnOrder)
+        {
+           if (this.characterData.characterType == CharacterType.Player && character.characterData.characterType == CharacterType.Player && character != this)
+           {
+                this.teammate = character;
+           }
+           if (this.characterData.characterType == CharacterType.Enemy && character.characterData.characterType == CharacterType.Enemy && character != this)
+           {
+                this.teammate = character;
+           }
+        }
+    }
+
+    public void SwitchCharacter()
+    {
+
+    }
+
+
+
 
     public void HealDamage(int amount)
     {

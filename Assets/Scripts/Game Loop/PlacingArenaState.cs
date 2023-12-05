@@ -11,7 +11,7 @@ public class PlacingArenaState : BaseState
 {
     private GameLoop gameLoop;
     private PlaceObject arenaPlacer;
-    private bool isOver = false;
+    private bool stateIsOver = false;
 
     public PlacingArenaState(GameLoop loop, PlaceObject arenaPlacerRef)
     {
@@ -34,12 +34,13 @@ public class PlacingArenaState : BaseState
     {
         gameLoop.InfoText.text = "Starting transition into thing";
 
-        yield return new WaitForSeconds(2.0f);   
+        yield return new WaitForSecondsRealtime(2.0f);
+        //gameLoop.transitionIsOver = true;
     }
 
     override public void Update()
     {
-        if (ConditionMet() && !isOver)
+        if (ConditionMet() && !stateIsOver)
         {
             gameLoop.TransitionToState(GameState.DetermineTurnOrder);
         }
@@ -47,14 +48,15 @@ public class PlacingArenaState : BaseState
 
     override public void Exit()
     {
-        isOver = true;
+        stateIsOver = true;
         arenaPlacer.enabled = false;
+        arenaPlacer.DebugText.text = "Some shit is fucked here";
         gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
     bool ConditionMet() //condition is if the player placed the arena and it's confirmed
     {
-        if (arenaPlacer.isPlaced && !isOver)
+        if (arenaPlacer.isPlaced && !stateIsOver)
         {
             gameLoop.InfoText.text = "Arena placed";
             return true;

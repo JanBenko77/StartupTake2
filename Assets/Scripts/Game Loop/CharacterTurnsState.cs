@@ -10,11 +10,15 @@ public class CharacterTurnsState : BaseState
 {
     private GameLoop gameLoop;
 
+    private SelectAction actionSelector;
+
     bool stateIsOver = false;
 
     public CharacterTurnsState(GameLoop loop)
     {
         gameLoop = loop;
+
+        actionSelector = gameLoop.GetComponent<SelectAction>();
     }
 
     override public void Enter()
@@ -52,7 +56,7 @@ public class CharacterTurnsState : BaseState
 
     bool ConditionMet()
     {
-        if (stateIsOver)//This should be SelectAction.actionsSelected
+        if (actionSelector.bothActionsSelected)//This should be SelectAction.actionsSelected
         {
             gameLoop.InfoText.text = "Turn order determined";
             return true;

@@ -44,7 +44,8 @@ public class PlaceObject : MonoBehaviour
         EnhancedTouch.TouchSimulation.Disable();
         EnhancedTouch.EnhancedTouchSupport.Disable();
         EnhancedTouch.Touch.onFingerDown -= FingerDown;
-
+        
+        aRPlaneManager.SetTrackablesActive(false);
         aRPlaneManager.enabled = false;
         aRRaycastManager.enabled = false;
         DebugText.text = "Script was set inactiveeeee";

@@ -29,11 +29,11 @@ public class Character : MonoBehaviour
     [SerializeField]
     Passives Passive;
     [SerializeField]
-    Abilities Ability1;
+    public Abilities Ability1;
     [SerializeField]
-    Abilities Ability2;
+    public Abilities Ability2;
     [SerializeField]
-    Ascensions Ascension;
+    public Ascensions Ascension;
     [SerializeField]
     int ability1Cost;
     [SerializeField]

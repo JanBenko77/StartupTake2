@@ -8,27 +8,18 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private Character character;
 
-    private Initialize script;
-
     private GameLoop gameLoop;
 
     private void Start()
     {
         character = GetComponent<Character>();
-        script = FindObjectOfType<Initialize>();
         gameLoop = FindObjectOfType<GameLoop>();
-    }
-
-    public void ChooseAction()
-    {
-
     }
 
     public List<Character> ChooseRandomTarget()
     {
         var targets = new List<Character>();
-        gameLoop.InfoText.text = "Starting to choose random target";
-        foreach (Character character in script.characters)
+        foreach (Character character in gameLoop.characters)
         {
             if (character.characterData.characterType == CharacterType.Player)
             {
@@ -37,7 +28,6 @@ public class EnemyAI : MonoBehaviour
         }
         int randomTarget = Random.Range(0, targets.Count);
         targets.RemoveAt(randomTarget);
-        gameLoop.InfoText.text = "Before return is ok";
         return targets;
     }
 

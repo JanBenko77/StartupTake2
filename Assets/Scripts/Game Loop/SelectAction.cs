@@ -166,6 +166,7 @@ public class SelectAction : MonoBehaviour
             RandomEnemy1Actions();
             RandomEnemy2Actions();
             BothActionsSelected();
+            gameLoop.InfoText.text = "Some other stuff";
         }
     }
 

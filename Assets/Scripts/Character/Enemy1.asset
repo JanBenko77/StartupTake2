@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ff9a2a715444b4287bbcb2af67fe45, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  characterName: TheEnemy
+  characterName: Enemy1
   description: anemapmda
   expansion: fuck you
   mythology: 1
   characterLevel: 161
   maxHealth: 100
   speed: 111
-  attack: 10
+  attack: 7
   defense: 5
   dodge: 10
   accuracy: 100

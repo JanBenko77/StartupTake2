@@ -23,9 +23,9 @@ public class CharacterTurnsState : BaseState
 
     override public void Enter()
     {
-        gameLoop.InfoText.text = "Resetting player energy";
+        gameLoop.InfoText.text = "Select character turns";
+        actionSelector.enabled = true;
         gameLoop.StartCoroutine(EnterCoroutine());
-        //Change UI to allow player to choose an action for each character
     }
 
     override public IEnumerator EnterCoroutine()
@@ -51,6 +51,7 @@ public class CharacterTurnsState : BaseState
     override public void Exit()
     {
         stateIsOver = true;
+        actionSelector.ResetActions();
         gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
@@ -59,6 +60,7 @@ public class CharacterTurnsState : BaseState
         if (actionSelector.bothActionsSelected)//This should be SelectAction.actionsSelected
         {
             gameLoop.InfoText.text = "Turn order determined";
+            actionSelector.enabled = false;
             return true;
         }
         return false;

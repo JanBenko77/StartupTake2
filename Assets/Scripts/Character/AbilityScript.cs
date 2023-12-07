@@ -87,7 +87,6 @@ public class AbilityScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Missed");
         }
     }
 
@@ -96,7 +95,6 @@ public class AbilityScript : MonoBehaviour
         character.attack *= 2;
         BasicAttack(character, targets);
         character.ResetAttack();
-        Debug.Log("Activated Double Attack");
     }
 
     public void HalfDefense(List<Character> targets)
@@ -107,7 +105,7 @@ public class AbilityScript : MonoBehaviour
         }
     }
 
-    public void Block(Character defender, Character attacker, Character teammate)//this should be checked before each attack
+    public void Block(Character defender, Character attacker, Character teammate)
     {
         if (attacker.GetAbilityUsed() == Abilities.BasicAttack)
         {
@@ -117,7 +115,6 @@ public class AbilityScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Skill issue, L bozo, get fucked");
             }
         }
         if (attacker.GetAbilityUsed() == Abilities.DoubleAttack)
@@ -128,7 +125,6 @@ public class AbilityScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Skill issue, L bozo, get fucked");
             }
         }
         if (attacker.GetAbilityUsed() == Abilities.HalfDefense)
@@ -139,7 +135,6 @@ public class AbilityScript : MonoBehaviour
             }
             else
             {
-                Debug.Log("Skill issue, L bozo, get fucked");
             }
         }
     }
@@ -153,7 +148,6 @@ public class AbilityScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Missed");
         }
     }
 

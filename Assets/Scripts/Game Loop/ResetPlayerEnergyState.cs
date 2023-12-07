@@ -54,7 +54,7 @@ public class ResetPlayerEnergyState : BaseState
     {
         if (energyReset)
         {
-            gameLoop.InfoText.text = "Turn order determined";
+            gameLoop.InfoText.text = "Reset energy";
             return true;
         }
         return false;

@@ -33,7 +33,7 @@ public class PlacingArenaState : BaseState
     private IEnumerator TransitionCoroutine()
     {
         gameLoop.InfoText.text = "Starting transition into thing";
-
+        Debug.Log("gameLoop.InfoText.text = '" + gameLoop.InfoText.text + "'");
         yield return new WaitForSecondsRealtime(2.0f);
         //gameLoop.transitionIsOver = true;
     }
@@ -50,7 +50,6 @@ public class PlacingArenaState : BaseState
     {
         stateIsOver = true;
         arenaPlacer.enabled = false;
-        arenaPlacer.DebugText.text = "Some shit is fucked here";
         gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
@@ -58,6 +57,7 @@ public class PlacingArenaState : BaseState
     {
         if (arenaPlacer.isPlaced && !stateIsOver)
         {
+            gameLoop.InitializeCharacters();
             gameLoop.InfoText.text = "Arena placed";
             return true;
         }

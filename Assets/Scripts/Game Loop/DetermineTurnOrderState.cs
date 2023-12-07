@@ -50,7 +50,7 @@ public class DetermineTurnOrderState : BaseState
     {
         if (ConditionMet() && !stateIsOver)
         {
-            gameLoop.TransitionToState(GameState.DetermineTurnOrder);
+            gameLoop.TransitionToState(GameState.ResetPlayerEnergy);
         }
     }
 

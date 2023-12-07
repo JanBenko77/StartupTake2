@@ -35,9 +35,9 @@ public class Character : MonoBehaviour
     [SerializeField]
     public Ascensions Ascension;
     [SerializeField]
-    int ability1Cost;
+    public int ability1Cost;
     [SerializeField]
-    int ability2Cost;
+    public int ability2Cost;
 
     AbilityScript abilityScript;
     Abilities lastAbilityUsed;
@@ -76,7 +76,27 @@ public class Character : MonoBehaviour
         inBattle = true;
     }
 
-    //Here goes the code for checking wether a player has enough mana
+    public void UseAnAbility(Abilities ability, List<Character> target, Ascensions ascension = Ascensions.Default)
+    {
+        if (ability == this.Ability1)
+        {
+            UseAbility1(target);
+        }
+        else if (ability == this.Ability2)
+        {
+            UseAbility2(target);
+        }
+        else
+        {
+            BasicAttack(target);
+        }
+
+        if (ascension == Ascensions.Medusa)
+        {
+            UseAscension(target);
+        }
+    }
+
     public void BasicAttack(List<Character> targets)
     {
         abilityScript.UseAbility(this, Abilities.BasicAttack, targets, 1);//check this when solved
@@ -117,17 +137,24 @@ public class Character : MonoBehaviour
 
     public void UseAscension(List<Character> targets)
     {
-        abilityScript.UseAscension(this, Ascension, targets);
-        lastAbilityUsed = Abilities.None;
+        if (Ascension != Ascensions.Default)
+        {
+            abilityScript.UseAscension(this, Ascension, targets);
+            lastAbilityUsed = Abilities.None;
+        }
+        else
+        {
+            //Nothing
+        }
     }
 
     public Abilities GetAbilityUsed()
     {
-        if (Ability1 == Abilities.BasicAttack)
+        if (lastAbilityUsed == Ability1)
         {
             return Ability1;
         }
-        else if (Ability2 == Abilities.BasicAttack)
+        else if (lastAbilityUsed == Ability2)
         {
             return Ability2;
         }
@@ -145,7 +172,6 @@ public class Character : MonoBehaviour
     public void SkipTurn()
     {
         //Remove out of next turn order
-        Debug.Log("Skipped turn for character" + characterName);
     }
 
     public void TakeDamage(int damage)
@@ -153,7 +179,6 @@ public class Character : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            Debug.Log("Character " + characterName + " died");
             currentHealth = 0;
             HandleDeathAndSwitch();
         }
@@ -211,9 +236,9 @@ public class Character : MonoBehaviour
                 }
             }
         }
-    }
 
-    //Make a method that's going to find this character's teammate
+        //Remove the thing?
+    }
 
     public void FindTeammate()
     {

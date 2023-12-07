@@ -26,12 +26,12 @@ public class GameLoop : MonoBehaviour
     public List<Character> characters;
 
     private int playerHealth = 3;
-    private int playerEnergy = 10;
+    public int playerEnergy = 10;
     [SerializeField]
     private int playerMaxEnergy = 10;
 
     private int enemyHealth = 3;
-    private int enemyEnergy = 10;
+    public int enemyEnergy = 10;
     [SerializeField]
     private int enemyMaxEnergy = 10;
 
@@ -50,6 +50,11 @@ public class GameLoop : MonoBehaviour
         stateDictionary[currentState].Enter();
         InfoText.text = "Placing arena state";
 
+        
+    }
+
+    public void InitializeCharacters()
+    {
         characters = new List<Character>(GameObject.FindObjectsOfType<Character>());
         foreach (Character character in characters)
         {
@@ -98,5 +103,29 @@ public class GameLoop : MonoBehaviour
     {
         playerEnergy = playerMaxEnergy;
         enemyEnergy = enemyMaxEnergy;
+    }
+
+    public void TakeDamage(string name)
+    {
+        if (name == "Player")
+        {
+            playerHealth -= 1;
+
+            if (playerHealth <= 0)
+            {
+                playerHealth = 0;
+                TransitionToState(GameState.AfterBattle);
+            }
+        }
+        else if (name == "Enemy")
+        {
+            enemyHealth -= 1;
+
+            if (enemyHealth <= 0)
+            {
+                enemyHealth = 0;
+                TransitionToState(GameState.AfterBattle);
+            }
+        }
     }
 }

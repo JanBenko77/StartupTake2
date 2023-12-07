@@ -22,15 +22,19 @@ public class ApplyChangesState : BaseState
 
     override public void Enter()
     {
+        gameLoop.InfoText.text = "Applying changes";
         applyActionsScript.enabled = true;
-
+        gameLoop.InfoText.text = "About to execute";
         applyActionsScript.ExecuteActions();
+        gameLoop.InfoText.text = "If reached, is good";
 
         gameLoop.StartCoroutine(EnterCoroutine());
     }
 
     override public IEnumerator EnterCoroutine()
     {
+        
+
         yield return null;
     }
 

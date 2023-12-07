@@ -52,6 +52,7 @@ public class ApplyChangesState : BaseState
     override public void Exit()
     {
         stateIsOver = true;
+        applyActionsScript.enabled = false;
         gameLoop.StartCoroutine(TransitionCoroutine());
     }
 

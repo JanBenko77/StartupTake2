@@ -38,7 +38,7 @@ public class AfterBattleState : BaseState
 
     override public void Update()
     {
-        //Update thing here
+        //Draw something to say that the battle is over
     }
 
     override public void Exit()

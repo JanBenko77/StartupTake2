@@ -12,8 +12,6 @@ public class CharacterTurnsState : BaseState
 
     private SelectAction actionSelector;
 
-    bool stateIsOver = false;
-
     public CharacterTurnsState(GameLoop loop)
     {
         gameLoop = loop;
@@ -25,6 +23,7 @@ public class CharacterTurnsState : BaseState
     {
         gameLoop.InfoText.text = "Select character turns";
         actionSelector.enabled = true;
+        stateIsOver = false;
         gameLoop.StartCoroutine(EnterCoroutine());
     }
 

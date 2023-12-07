@@ -9,8 +9,6 @@ public class DetermineTurnOrderState : BaseState
 
     public static List<Character> turnOrder = new List<Character>();
 
-    bool stateIsOver = false;
-
     bool orderDetermined = false;
 
     public DetermineTurnOrderState(GameLoop loop)
@@ -23,6 +21,7 @@ public class DetermineTurnOrderState : BaseState
         gameLoop.InfoText.text = "Determining turn order";
         gameLoop.StartCoroutine(EnterCoroutine());
         turnOrder.Clear();
+        stateIsOver = false;
         foreach (Character character in gameLoop.characters)
         {
             if (character.inBattle)

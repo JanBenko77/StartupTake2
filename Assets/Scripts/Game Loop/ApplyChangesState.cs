@@ -9,8 +9,6 @@ public class ApplyChangesState : BaseState
 
     private ApplyActions applyActionsScript;
 
-    bool stateIsOver = false;
-
     public ApplyChangesState(GameLoop loop)
     {
         gameLoop = loop;
@@ -25,6 +23,7 @@ public class ApplyChangesState : BaseState
         gameLoop.InfoText.text = "About to execute";
         applyActionsScript.ExecuteActions();
         gameLoop.InfoText.text = "If reached, is good";
+        stateIsOver = false;
 
         gameLoop.StartCoroutine(EnterCoroutine());
     }

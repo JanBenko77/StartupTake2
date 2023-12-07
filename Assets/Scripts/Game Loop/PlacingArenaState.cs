@@ -11,7 +11,6 @@ public class PlacingArenaState : BaseState
 {
     private GameLoop gameLoop;
     private PlaceObject arenaPlacer;
-    private bool stateIsOver = false;
 
     public PlacingArenaState(GameLoop loop, PlaceObject arenaPlacerRef)
     {
@@ -23,6 +22,7 @@ public class PlacingArenaState : BaseState
     {
         gameLoop.StartCoroutine(EnterCoroutine());
         arenaPlacer.enabled = true;
+        stateIsOver = false;
     }
 
     override public IEnumerator EnterCoroutine()

@@ -6,8 +6,6 @@ public class ResetPlayerEnergyState : BaseState
 {
     private GameLoop gameLoop;
 
-    bool stateIsOver = false;
-
     bool energyReset = false;
 
     public ResetPlayerEnergyState(GameLoop loop)
@@ -21,6 +19,7 @@ public class ResetPlayerEnergyState : BaseState
         gameLoop.StartCoroutine(EnterCoroutine());
         //gameLoop.IncrementEnergy(2);  //Turn this on to increment energy each turn
         gameLoop.ResetEnergy();
+        stateIsOver = false;
         energyReset = true;
     }
 

@@ -77,6 +77,8 @@ public class GameLoop : MonoBehaviour
     {
         stateDictionary[currentState].Exit();
 
+        stateDictionary[currentState].stateIsOver = false;
+
         yield return StartCoroutine(stateDictionary[newState].EnterCoroutine());
 
         currentState = newState;

@@ -27,6 +27,13 @@ MonoBehaviour:
   Ability1: 2
   Ability2: 11
   Ascension: 1
+<<<<<<< Updated upstream
   ability1Cost: 3
   ability2Cost: 5
   characterType: 0
+=======
+  ability1Cost: 5
+  ability2Cost: 7
+  characterType: 0
+  anim: {fileID: 9100000, guid: d9e57c5a134db2841a36f8a7b8f93a63, type: 2}
+>>>>>>> Stashed changes

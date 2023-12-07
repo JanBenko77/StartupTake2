@@ -30,3 +30,4 @@ MonoBehaviour:
   ability1Cost: 2
   ability2Cost: 2
   characterType: 1
+  anim: {fileID: 0}

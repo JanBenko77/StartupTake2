@@ -10,7 +10,7 @@ public class ButtonActions : MonoBehaviour
 
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene("Jan's Test Chamber");
+        SceneManager.LoadScene(1);
     }
 
 

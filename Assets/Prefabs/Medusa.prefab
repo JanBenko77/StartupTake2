@@ -290,7 +290,11 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< Updated upstream
   - {fileID: 1786778601858429268}
+=======
+  - {fileID: 6051794211684794326}
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1045535856046594641
@@ -308,7 +312,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8126912115169396413}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -400,6 +404,7 @@ MonoBehaviour:
   target: []
   teammate: {fileID: 0}
   inBattle: 0
+  anim: {fileID: 9100000, guid: d9e57c5a134db2841a36f8a7b8f93a63, type: 2}
 --- !u!114 &6675418277327609048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +421,7 @@ MonoBehaviour:
   targetsUnity:
   - {fileID: 0}
   - {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!114 &4225187454180387726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,3 +437,104 @@ MonoBehaviour:
   healthbar: {fileID: 6982962066704790825}
   character: {fileID: 0}
   debugText: {fileID: 0}
+=======
+--- !u!1001 &6086319922055600189
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4531630637924387087}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_Name
+      value: bodyLPDwarf_Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 73b6c55b5af1be44c8dcb006c4480357,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d9e57c5a134db2841a36f8a7b8f93a63, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 73b6c55b5af1be44c8dcb006c4480357, type: 3}
+--- !u!4 &6051794211684794326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73b6c55b5af1be44c8dcb006c4480357,
+    type: 3}
+  m_PrefabInstance: {fileID: 6086319922055600189}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Stashed changes

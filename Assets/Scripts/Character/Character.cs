@@ -45,6 +45,9 @@ public class Character : MonoBehaviour
     public List<Character> target;
     public Character teammate;
     public bool inBattle = false;
+    public Animator anim;
+    public AudioSource audio;
+    public List<AudioClip> audioClip;
 
 
     public void Initialize(CharacterData data)
@@ -73,17 +76,19 @@ public class Character : MonoBehaviour
         ability1Cost = data.ability1Cost;
         ability2Cost = data.ability2Cost;
 
+        anim = GetComponent<Animator>();
         abilityScript = FindObjectOfType<AbilityScript>();
         inBattle = true;
     }
 
     public void UseAnAbility(Abilities ability, List<Character> target, Ascensions ascension = Ascensions.Default)
     {
-        if (ability == this.Ability1)
+        GameLoop gameloop = FindObjectOfType<GameLoop>();
+        if (ability == Ability1)
         {
             UseAbility1(target);
         }
-        else if (ability == this.Ability2)
+        else if (ability == Ability2)
         {
             UseAbility2(target);
         }
@@ -91,7 +96,6 @@ public class Character : MonoBehaviour
         {
             BasicAttack(target);
         }
-
         if (ascension == Ascensions.Medusa)
         {
             UseAscension(target);
@@ -181,6 +185,7 @@ public class Character : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            anim.SetBool("Die", true);
             HandleDeathAndSwitch();
         }
     }
@@ -277,9 +282,6 @@ public class Character : MonoBehaviour
     }
 
 
-
-
-
     public void HealDamage(int amount)
     {
         currentHealth += amount;
@@ -318,4 +320,16 @@ public class Character : MonoBehaviour
         ResetAccuracy();
     }
 
+    private void Update()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Animation Ended"))
+        {
+            anim.SetInteger("Attack", 0);
+            anim.SetBool("Animation Ended", true);
+        }
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            anim.SetBool("Animation Ended", false);
+        }
+    }
 }

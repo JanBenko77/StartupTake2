@@ -172,13 +172,15 @@ public class SelectAction : MonoBehaviour
 
     private void RandomEnemy1Actions()
     {
+        gameLoop.InfoText.text = "Random enemy 1 actions";
         enemy1 = gameLoop.characters.Find((x) => x.characterData.characterName == "Enemy1");
-
+        gameLoop.InfoText.text = "Starts here";
         EnemyAI ai = enemy1.GetComponent<EnemyAI>();
-
+        gameLoop.InfoText.text = "Problem is here";
         selectedActionEnemy1 = ai.ChooseRandomAbility();
-
+        gameLoop.InfoText.text = "Nope, its here";
         selectedTargetEnemy1 = ai.ChooseRandomTarget();
+        gameLoop.InfoText.text = "This shouldn't";
     }
 
     private void RandomEnemy2Actions()

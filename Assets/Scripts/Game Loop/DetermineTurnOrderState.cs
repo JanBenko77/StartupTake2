@@ -18,6 +18,12 @@ public class DetermineTurnOrderState : BaseState
 
     override public void Enter()
     {
+        gameLoop.PlayerHealthText.gameObject.SetActive(true);
+        gameLoop.EnemyHealthText.gameObject.SetActive(true);
+
+        gameLoop.PlayerHealthText.text = "Player Health: " + gameLoop.playerHealth;
+        gameLoop.EnemyHealthText.text = "Enemy Health: " + gameLoop.enemyHealth;
+
         gameLoop.InfoText.text = "Determining turn order";
         gameLoop.StartCoroutine(EnterCoroutine());
         turnOrder.Clear();
@@ -31,6 +37,7 @@ public class DetermineTurnOrderState : BaseState
         }
         turnOrder = turnOrder.OrderByDescending(c => c.characterData.speed).ToList();
         orderDetermined = true;
+
     }
 
     override public IEnumerator EnterCoroutine()

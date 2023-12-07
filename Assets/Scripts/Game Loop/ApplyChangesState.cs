@@ -18,11 +18,8 @@ public class ApplyChangesState : BaseState
 
     override public void Enter()
     {
-        gameLoop.InfoText.text = "Applying changes";
         applyActionsScript.enabled = true;
-        gameLoop.InfoText.text = "About to execute";
         applyActionsScript.ExecuteActions();
-        gameLoop.InfoText.text = "If reached, is good";
         stateIsOver = false;
 
         gameLoop.StartCoroutine(EnterCoroutine());
@@ -37,8 +34,6 @@ public class ApplyChangesState : BaseState
 
     private IEnumerator TransitionCoroutine()
     {
-        gameLoop.InfoText.text = "Starting transition into thing";
-
         yield return new WaitForSeconds(2.0f);
     }
 

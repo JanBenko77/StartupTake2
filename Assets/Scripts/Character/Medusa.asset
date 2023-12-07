@@ -17,9 +17,9 @@ MonoBehaviour:
   expansion: 1
   mythology: 2
   characterLevel: 1
-  maxHealth: 10
+  maxHealth: 100
   speed: 10
-  attack: 10
+  attack: 20
   defense: 10
   dodge: 10
   accuracy: 100
@@ -27,5 +27,6 @@ MonoBehaviour:
   Ability1: 2
   Ability2: 11
   Ascension: 1
-  ability1Cost: 5
-  ability2Cost: 7
+  ability1Cost: 3
+  ability2Cost: 5
+  characterType: 0

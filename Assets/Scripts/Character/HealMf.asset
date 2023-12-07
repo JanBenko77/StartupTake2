@@ -13,20 +13,20 @@ MonoBehaviour:
   m_Name: HealMf
   m_EditorClassIdentifier: 
   characterName: HealGuy
-  description: 124
-  expansion: 124124
-  mythology: 0
-  characterLevel: 124124
+  description: None
+  expansion: None
+  mythology: 2
+  characterLevel: 1
   maxHealth: 100
   speed: 20
-  attack: 0
-  defense: 0
+  attack: 20
+  defense: 5
   dodge: 0
   accuracy: 100
   Passive: 0
   Ability1: 8
-  Ability2: 0
+  Ability2: 3
   Ascension: 0
-  ability1Cost: 0
-  ability2Cost: 0
+  ability1Cost: 2
+  ability2Cost: 5
   characterType: 0

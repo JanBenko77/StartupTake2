@@ -46,6 +46,9 @@ public class SelectAction : MonoBehaviour
     public Ascensions selectedAscensionEnemy2;
     public List<Character> selectedTargetEnemy2;
 
+    public TMP_Text Ability1Text;
+    public TMP_Text Ability2Text;
+
     private void Awake()
     {
         gameLoop = FindObjectOfType<GameLoop>();
@@ -59,8 +62,6 @@ public class SelectAction : MonoBehaviour
         actionSelectionPanel.SetActive(false);
         targetSelectionPanel.SetActive(false);
         confirmButton.SetActive(false);
-
-        gameLoop.InfoText.text = "Active lmao";
     }
 
     private void OnDisable()
@@ -86,6 +87,13 @@ public class SelectAction : MonoBehaviour
         characterSelectionPanel.SetActive(false);
         actionSelectionPanel.SetActive(true);
         gameLoop.InfoText.text = "Character selected: " + selectedCharacter.characterData.characterName;
+        SelectNames(selectedCharacter);
+    }
+
+    public void SelectNames(Character character)
+    {
+        Ability1Text.text = character.Ability1.ToString();
+        Ability2Text.text = character.Ability2.ToString();
     }
 
     public void SelectCharacterAction(int i)
@@ -98,10 +106,12 @@ public class SelectAction : MonoBehaviour
             case 2:
                 selectedAction = selectedCharacter.Ability1;
                 gameLoop.playerEnergy -= selectedCharacter.ability1Cost;
+                gameLoop.InfoText.text = "Player energy: " + gameLoop.playerEnergy;
                 break;
             case 3:
                 selectedAction = selectedCharacter.Ability2;
                 gameLoop.playerEnergy -= selectedCharacter.ability2Cost;
+                gameLoop.InfoText.text = "Player energy: " + gameLoop.playerEnergy;
                 break;
             case 4:
                 selectedAscension = selectedCharacter.Ascension;
@@ -162,25 +172,18 @@ public class SelectAction : MonoBehaviour
         if (iteration == 1)
         {
             iteration = 0;
-            gameLoop.InfoText.text = "Both actions selected";
             RandomEnemy1Actions();
             RandomEnemy2Actions();
             BothActionsSelected();
-            gameLoop.InfoText.text = "Some other stuff";
         }
     }
 
     private void RandomEnemy1Actions()
     {
-        gameLoop.InfoText.text = "Random enemy 1 actions";
         enemy1 = gameLoop.characters.Find((x) => x.characterData.characterName == "Enemy1");
-        gameLoop.InfoText.text = "Starts here";
         EnemyAI ai = enemy1.GetComponent<EnemyAI>();
-        gameLoop.InfoText.text = "Problem is here";
         selectedActionEnemy1 = ai.ChooseRandomAbility();
-        gameLoop.InfoText.text = "Nope, its here";
         selectedTargetEnemy1 = ai.ChooseRandomTarget();
-        gameLoop.InfoText.text = "This shouldn't";
     }
 
     private void RandomEnemy2Actions()

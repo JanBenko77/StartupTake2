@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Enemy1
   m_EditorClassIdentifier: 
   characterName: Enemy1
-  description: anemapmda
-  expansion: fuck you
+  description: None
+  expansion: None
   mythology: 1
-  characterLevel: 161
+  characterLevel: 1
   maxHealth: 100
-  speed: 111
+  speed: 25
   attack: 7
   defense: 5
   dodge: 10
@@ -27,6 +27,6 @@ MonoBehaviour:
   Ability1: 3
   Ability2: 2
   Ascension: 0
-  ability1Cost: 0
-  ability2Cost: 0
+  ability1Cost: 2
+  ability2Cost: 2
   characterType: 1

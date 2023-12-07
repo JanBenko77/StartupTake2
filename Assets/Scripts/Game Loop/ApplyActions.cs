@@ -46,6 +46,7 @@ public class ApplyActions : MonoBehaviour
                 else
                 {
                     character.UseAnAbility(actionSelector.selectedActionCharacter1, actionSelector.selectedTargetCharacter1);
+                    
                 }
             }
             else if (character == actionSelector.character2)
@@ -59,17 +60,6 @@ public class ApplyActions : MonoBehaviour
                     character.UseAnAbility(actionSelector.selectedActionCharacter2, actionSelector.selectedTargetCharacter2);
                 }
             }
-            else if (character == actionSelector.enemy1)
-            {
-                if (actionSelector.selectedAscensionEnemy1 == Ascensions.Medusa)
-                {
-                    character.UseAscension(actionSelector.selectedTargetEnemy1);
-                }
-                else
-                {
-                    character.UseAnAbility(actionSelector.selectedActionEnemy1, actionSelector.selectedTargetEnemy1);
-                }
-            }
             else if (character == actionSelector.enemy2)
             {
                 if (actionSelector.selectedAscensionEnemy2 == Ascensions.Medusa)
@@ -79,6 +69,17 @@ public class ApplyActions : MonoBehaviour
                 else
                 {
                     character.UseAnAbility(actionSelector.selectedActionEnemy2, actionSelector.selectedTargetEnemy2);
+                }
+            }
+            else if (character == actionSelector.enemy1)
+            {
+                if (actionSelector.selectedAscensionEnemy1 == Ascensions.Medusa)
+                {
+                    character.UseAscension(actionSelector.selectedTargetEnemy1);
+                }
+                else
+                {
+                    character.UseAnAbility(actionSelector.selectedActionEnemy1, actionSelector.selectedTargetEnemy1);
                 }
             }
             if (!character.inBattle)

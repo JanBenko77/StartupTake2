@@ -19,10 +19,6 @@ public class PlaceObject : MonoBehaviour
     private ARPlaneManager aRPlaneManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-    //
-    public TMP_Text DebugText;
-    //
-
     private void Awake()
     {
         aRPlaneManager = GetComponent<ARPlaneManager>();
@@ -35,8 +31,6 @@ public class PlaceObject : MonoBehaviour
         EnhancedTouch.TouchSimulation.Enable();
         EnhancedTouch.EnhancedTouchSupport.Enable();
         EnhancedTouch.Touch.onFingerDown += FingerDown;
-
-        DebugText.text = "Script was set active";
     }
 
     private void OnDisable()
@@ -48,7 +42,6 @@ public class PlaceObject : MonoBehaviour
         aRPlaneManager.SetTrackablesActive(false);
         aRPlaneManager.enabled = false;
         aRRaycastManager.enabled = false;
-        DebugText.text = "Script was set inactiveeeee";
     }
 
     private void FingerDown(EnhancedTouch.Finger finger)

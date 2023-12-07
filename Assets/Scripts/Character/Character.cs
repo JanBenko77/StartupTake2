@@ -46,6 +46,7 @@ public class Character : MonoBehaviour
     public Character teammate;
     public bool inBattle = false;
 
+
     public void Initialize(CharacterData data)
     {
         characterData = data;
@@ -186,19 +187,34 @@ public class Character : MonoBehaviour
 
     public void HandleDeathAndSwitch()
     {
-        inBattle = false;
-        foreach (Character character in DetermineTurnOrderState.turnOrder)
+        GameLoop gameLoop = FindObjectOfType<GameLoop>();
+        if (this.characterData.characterType == CharacterType.Enemy)
+        {
+            gameLoop.TakeDamage("Enemy");
+        }
+        else
+        {
+            gameLoop.TakeDamage("Player");
+        }
+        ResetHealth();
+        /*foreach (Character character in DetermineTurnOrderState.turnOrder)
         {
             if (character.characterData.characterType == CharacterType.Player && character.inBattle)
             {
+                gameLoop.InfoText.text = "Breaks at 1";
                 if (character.target[0] == this)
                 {
+                    gameLoop.InfoText.text = "Breaks at 2";
                     if (this.characterData.characterType == CharacterType.Enemy)
                     {
+                        gameLoop.InfoText.text = "Breaks at 3";
                         FindTeammate();
+                        gameLoop.InfoText.text = "Breaks at 4";
                         if (this.teammate.inBattle)
                         {
+                            gameLoop.InfoText.text = "Breaks at 5";
                             character.SwitchTarget(this.teammate);
+                            gameLoop.InfoText.text = "Breaks at 6";
                         }
                         else
                         {
@@ -208,19 +224,25 @@ public class Character : MonoBehaviour
                     else if (this.characterData.characterType == CharacterType.Player)
                     {
                         character.SwitchTarget(character);
+                        gameLoop.InfoText.text = "Breaks at 7";
                     }
                 }
             }
 
             if (character.characterData.characterType == CharacterType.Enemy && character.inBattle)
             {
+                gameLoop.InfoText.text = "Breaks at 8";
                 if (character.target[0] == this)
                 {
+                    gameLoop.InfoText.text = "Breaks at 9";
                     if (this.characterData.characterType == CharacterType.Player)
                     {
+                        gameLoop.InfoText.text = "Breaks at 10";
                         FindTeammate();
+                        gameLoop.InfoText.text = "Breaks at 11";
                         if (this.teammate.inBattle)
                         {
+                            gameLoop.InfoText.text = "Breaks at 12";
                             character.SwitchTarget(this.teammate);
                         }
                         else
@@ -231,13 +253,12 @@ public class Character : MonoBehaviour
                     else if (this.characterData.characterType == CharacterType.Enemy)
                     {
                         character.SwitchTarget(character);
+                        gameLoop.InfoText.text = "Breaks at 13";
                     }
                     
                 }
             }
-        }
-
-        //Remove the thing?
+        }*/
     }
 
     public void FindTeammate()
@@ -255,10 +276,6 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void SwitchCharacter()
-    {
-
-    }
 
 
 

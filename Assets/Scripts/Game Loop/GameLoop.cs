@@ -22,15 +22,18 @@ public class GameLoop : MonoBehaviour
     [SerializeField]
     public TMP_Text InfoText;
 
+    public TMP_Text PlayerHealthText;
+    public TMP_Text EnemyHealthText;
+
     //[SerializeField]
     public List<Character> characters;
 
-    private int playerHealth = 3;
+    public int playerHealth = 3;
     public int playerEnergy = 10;
     [SerializeField]
     private int playerMaxEnergy = 10;
 
-    private int enemyHealth = 3;
+    public int enemyHealth = 3;
     public int enemyEnergy = 10;
     [SerializeField]
     private int enemyMaxEnergy = 10;
@@ -49,8 +52,6 @@ public class GameLoop : MonoBehaviour
         currentState = GameState.PlacingArena;
         stateDictionary[currentState].Enter();
         InfoText.text = "Placing arena state";
-
-        
     }
 
     public void InitializeCharacters()
@@ -112,8 +113,9 @@ public class GameLoop : MonoBehaviour
         if (name == "Player")
         {
             playerHealth -= 1;
-
-            if (playerHealth <= 0)
+            PlayerHealthText.text = "Player health: " + playerHealth.ToString();
+            
+            if (playerHealth < 1)
             {
                 playerHealth = 0;
                 TransitionToState(GameState.AfterBattle);
@@ -122,8 +124,9 @@ public class GameLoop : MonoBehaviour
         else if (name == "Enemy")
         {
             enemyHealth -= 1;
+            EnemyHealthText.text = "Enemy health: " + enemyHealth.ToString();
 
-            if (enemyHealth <= 0)
+            if (enemyHealth < 1)
             {
                 enemyHealth = 0;
                 TransitionToState(GameState.AfterBattle);

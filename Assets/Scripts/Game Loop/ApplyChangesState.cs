@@ -11,8 +11,6 @@ public class ApplyChangesState : BaseState
 
     bool stateIsOver = false;
 
-    bool actionsExecuted = false;
-
     public ApplyChangesState(GameLoop loop)
     {
         gameLoop = loop;
@@ -62,7 +60,7 @@ public class ApplyChangesState : BaseState
 
     bool ConditionMet()
     {
-        if (actionsExecuted)
+        if (applyActionsScript.actionsExecuted)
         {
             gameLoop.InfoText.text = "Actions executed";
             return true;

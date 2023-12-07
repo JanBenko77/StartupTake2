@@ -30,6 +30,7 @@ public class ApplyActions : MonoBehaviour
     private void OnDisable()
     {
         turnOrder.Clear();
+        actionsExecuted = false;
     }
 
     public void ExecuteActions()

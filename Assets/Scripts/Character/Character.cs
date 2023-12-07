@@ -45,10 +45,6 @@ public class Character : MonoBehaviour
     public List<Character> target;
     public Character teammate;
     public bool inBattle = false;
-    public Animator anim;
-    public AudioSource audio;
-    public List<AudioClip> audioClip;
-
 
     public void Initialize(CharacterData data)
     {
@@ -76,7 +72,6 @@ public class Character : MonoBehaviour
         ability1Cost = data.ability1Cost;
         ability2Cost = data.ability2Cost;
 
-        anim = GetComponent<Animator>();
         abilityScript = FindObjectOfType<AbilityScript>();
         inBattle = true;
     }
@@ -185,7 +180,6 @@ public class Character : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            anim.SetBool("Die", true);
             HandleDeathAndSwitch();
         }
     }
@@ -318,18 +312,5 @@ public class Character : MonoBehaviour
         ResetDefense();
         ResetDodge();
         ResetAccuracy();
-    }
-
-    private void Update()
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Animation Ended"))
-        {
-            anim.SetInteger("Attack", 0);
-            anim.SetBool("Animation Ended", true);
-        }
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-        {
-            anim.SetBool("Animation Ended", false);
-        }
     }
 }

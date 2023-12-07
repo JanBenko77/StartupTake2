@@ -13,27 +13,20 @@ MonoBehaviour:
   m_Name: Medusa
   m_EditorClassIdentifier: 
   characterName: Medusa
-  description: Greek legend
-  expansion: 1
+  description: None
+  expansion: None
   mythology: 2
   characterLevel: 1
   maxHealth: 100
-  speed: 10
+  speed: 15
   attack: 20
-  defense: 10
-  dodge: 10
+  defense: 5
+  dodge: 20
   accuracy: 100
   Passive: 0
   Ability1: 2
   Ability2: 11
   Ascension: 1
-<<<<<<< Updated upstream
-  ability1Cost: 3
-  ability2Cost: 5
-  characterType: 0
-=======
   ability1Cost: 5
-  ability2Cost: 7
+  ability2Cost: 2
   characterType: 0
-  anim: {fileID: 9100000, guid: d9e57c5a134db2841a36f8a7b8f93a63, type: 2}
->>>>>>> Stashed changes

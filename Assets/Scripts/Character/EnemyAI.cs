@@ -10,10 +10,13 @@ public class EnemyAI : MonoBehaviour
 
     private Initialize script;
 
+    private GameLoop gameLoop;
+
     private void Start()
     {
         character = GetComponent<Character>();
         script = FindObjectOfType<Initialize>();
+        gameLoop = FindObjectOfType<GameLoop>();
     }
 
     public void ChooseAction()
@@ -24,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     public List<Character> ChooseRandomTarget()
     {
         var targets = new List<Character>();
+        gameLoop.InfoText.text = "Starting to choose random target";
         foreach (Character character in script.characters)
         {
             if (character.characterData.characterType == CharacterType.Player)
@@ -33,6 +37,7 @@ public class EnemyAI : MonoBehaviour
         }
         int randomTarget = Random.Range(0, targets.Count);
         targets.RemoveAt(randomTarget);
+        gameLoop.InfoText.text = "Before return is ok";
         return targets;
     }
 

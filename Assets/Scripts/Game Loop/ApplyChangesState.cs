@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Remove the character from the TurnOrder arraylist if they were KO'd, and remove the character from the turn order that just took their turn, set them to !InBattle
-//If a character was KO'd, switch for a different character, can't be the same character that just got KO'd, reset that character's stats(HP) to max
-//If there are no more characters in the TurnOrder arraylist, go back to DetermineTurnOrder
 
 public class ApplyChangesState : BaseState
 {
     private GameLoop gameLoop;
 
     private ApplyActions applyActionsScript;
+
+    bool stateIsOver = false;
+
+    bool actionsExecuted = false;
 
     public ApplyChangesState(GameLoop loop)
     {
@@ -22,7 +23,10 @@ public class ApplyChangesState : BaseState
     override public void Enter()
     {
         applyActionsScript.enabled = true;
-        gameLoop.StartCoroutine(TransitionCoroutine());
+
+        applyActionsScript.ExecuteActions();
+
+        gameLoop.StartCoroutine(EnterCoroutine());
     }
 
     override public IEnumerator EnterCoroutine()
@@ -32,22 +36,32 @@ public class ApplyChangesState : BaseState
 
     private IEnumerator TransitionCoroutine()
     {
+        gameLoop.InfoText.text = "Starting transition into thing";
 
         yield return new WaitForSeconds(2.0f);
     }
 
     override public void Update()
     {
-        
+        if (ConditionMet() && !stateIsOver)
+        {
+            gameLoop.TransitionToState(GameState.DetermineTurnOrder);
+        }
     }
 
     override public void Exit()
     {
-        
+        stateIsOver = true;
+        gameLoop.StartCoroutine(TransitionCoroutine());
     }
 
     bool ConditionMet()
     {
-        return true;
+        if (actionsExecuted)
+        {
+            gameLoop.InfoText.text = "Actions executed";
+            return true;
+        }
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -16,7 +17,7 @@ public class Character : MonoBehaviour
     private MythType mythology;
     [SerializeField]
     private int characterLevel;
-    //public RuntimeAnimatorController animatorController;
+    public Animator _Animator;
 
     public int maxHealth;
     public int currentHealth;
@@ -55,7 +56,7 @@ public class Character : MonoBehaviour
         expansion = data.expansion;
         mythology = data.mythology;
         characterLevel = data.characterLevel;
-        //GetComponent<Animator>().runtimeAnimatorController = data.animatorController;
+        _Animator = GetComponentInChildren<Animator>();
 
         maxHealth = data.maxHealth;
         currentHealth = data.maxHealth;
@@ -76,34 +77,51 @@ public class Character : MonoBehaviour
         inBattle = true;
     }
 
-    public void UseAnAbility(Abilities ability, List<Character> target, Ascensions ascension = Ascensions.Default)
+    public IEnumerable UseAnAbility(Abilities ability, List<Character> target, Ascensions ascension = Ascensions.Default)
     {
         GameLoop gameloop = FindObjectOfType<GameLoop>();
         if (ability == Ability1)
         {
+            yield return new WaitUntil(() => _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            _Animator.SetInteger("Attack", 1);
             UseAbility1(target);
+            yield return new WaitWhile(() => _Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1"));
+            _Animator.SetInteger("Attack", 0);
         }
         else if (ability == Ability2)
         {
+            yield return new WaitUntil(() => _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            _Animator.SetInteger("Attack", 2);
             UseAbility2(target);
+            yield return new WaitWhile(() => _Animator.GetCurrentAnimatorStateInfo(0).IsName("Attack2"));
+            _Animator.SetInteger("Attack", 0);
         }
         else
         {
+            yield return new WaitUntil(() => _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            _Animator.SetInteger("Attack", 1);
             BasicAttack(target);
+            yield return new WaitWhile(() => _Animator.GetCurrentAnimatorStateInfo(0).IsName("anim_state"));
+            _Animator.SetInteger("Attack", 0);
         }
         if (ascension == Ascensions.Medusa)
         {
+            yield return new WaitUntil(() => _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            _Animator.SetInteger("Attack", 3);
             UseAscension(target);
+            yield return new WaitWhile(() => _Animator.GetCurrentAnimatorStateInfo(0).IsName("anim_state"));
+            _Animator.SetInteger("Attack", 0);
         }
     }
 
-    public void BasicAttack(List<Character> targets)
+    public IEnumerable BasicAttack(List<Character> targets)
     {
         abilityScript.UseAbility(this, Abilities.BasicAttack, targets, 1);//check this when solved
         lastAbilityUsed = Abilities.BasicAttack;
+        return null;
     }
 
-    public void UseAbility1(List<Character> targets)
+    public IEnumerable UseAbility1(List<Character> targets)
     {
         if (lastAbilityUsed == Ability1)
         {
@@ -117,9 +135,10 @@ public class Character : MonoBehaviour
         //player.energy -= ability1Cost;
         lastAbilityUsed = Ability1;
         lastAbilityUsedCounter++;
+        return null;
     }
 
-    public void UseAbility2(List<Character> targets)
+    public IEnumerable UseAbility2(List<Character> targets)
     {
         if (lastAbilityUsed == Ability2)
         {
@@ -133,9 +152,10 @@ public class Character : MonoBehaviour
         //player.energy -= ability2Cost;
         lastAbilityUsed = Ability2;
         lastAbilityUsedCounter++;
+        return null;
     }
 
-    public void UseAscension(List<Character> targets)
+    public IEnumerable UseAscension(List<Character> targets)
     {
         if (Ascension != Ascensions.Default)
         {
@@ -146,6 +166,7 @@ public class Character : MonoBehaviour
         {
             //Nothing
         }
+        return null;
     }
 
     public Abilities GetAbilityUsed()

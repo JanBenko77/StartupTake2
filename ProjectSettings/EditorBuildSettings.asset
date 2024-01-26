@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuTest.unity
     guid: 1314d6fe94b848d45bec7f21b194e0cd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Jan's Test Chamber.unity
     guid: d9bf9f1c42c21104a9ec2317470cb947
   - enabled: 0
     path: Assets/ExampleAssets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tim's Test Chamber.unity
     guid: c06affcc620ac7b4b8190e35ceaf8219
   m_configObjects:

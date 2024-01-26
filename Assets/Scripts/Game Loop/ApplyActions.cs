@@ -33,7 +33,7 @@ public class ApplyActions : MonoBehaviour
         actionsExecuted = false;
     }
 
-    public void ExecuteActions()
+    public IEnumerator ExecuteActions()
     {
         foreach (Character character in turnOrder)
         {
@@ -41,45 +41,44 @@ public class ApplyActions : MonoBehaviour
             {
                 if (actionSelector.selectedAscensionCharacter1 == Ascensions.Medusa)
                 {
-                    character.UseAscension(actionSelector.selectedTargetCharacter1);
+                    yield return (character.UseAscension(actionSelector.selectedTargetCharacter1));
                 }
                 else
                 {
-                    character.UseAnAbility(actionSelector.selectedActionCharacter1, actionSelector.selectedTargetCharacter1);
-                    
+                    yield return (character.UseAnAbility(actionSelector.selectedActionCharacter1, actionSelector.selectedTargetCharacter1));
                 }
             }
             else if (character == actionSelector.character2)
             {
                 if (actionSelector.selectedAscensionsCharacter2 == Ascensions.Medusa)
                 {
-                    character.UseAscension(actionSelector.selectedTargetCharacter2);
+                    yield return (character.UseAscension(actionSelector.selectedTargetCharacter2));
                 }
                 else
                 {
-                    character.UseAnAbility(actionSelector.selectedActionCharacter2, actionSelector.selectedTargetCharacter2);
+                    yield return (character.UseAnAbility(actionSelector.selectedActionCharacter2, actionSelector.selectedTargetCharacter2));
                 }
             }
             else if (character == actionSelector.enemy2)
             {
                 if (actionSelector.selectedAscensionEnemy2 == Ascensions.Medusa)
                 {
-                    character.UseAscension(actionSelector.selectedTargetEnemy2);
+                    yield return (character.UseAscension(actionSelector.selectedTargetEnemy2));
                 }
                 else
                 {
-                    character.UseAnAbility(actionSelector.selectedActionEnemy2, actionSelector.selectedTargetEnemy2);
+                    yield return (character.UseAnAbility(actionSelector.selectedActionEnemy2, actionSelector.selectedTargetEnemy2));
                 }
             }
             else if (character == actionSelector.enemy1)
             {
                 if (actionSelector.selectedAscensionEnemy1 == Ascensions.Medusa)
                 {
-                    character.UseAscension(actionSelector.selectedTargetEnemy1);
+                    yield return (character.UseAscension(actionSelector.selectedTargetEnemy1));
                 }
                 else
                 {
-                    character.UseAnAbility(actionSelector.selectedActionEnemy1, actionSelector.selectedTargetEnemy1);
+                    yield return (character.UseAnAbility(actionSelector.selectedActionEnemy1, actionSelector.selectedTargetEnemy1));
                 }
             }
             if (!character.inBattle)
@@ -95,6 +94,6 @@ public class ApplyActions : MonoBehaviour
             }
         }
         actionsExecuted = true;
+        yield break;
     }
-
 }

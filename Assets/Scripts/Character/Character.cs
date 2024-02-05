@@ -112,7 +112,9 @@ public class Character : MonoBehaviour
             /*            yield return new WaitUntil(() => _Animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);*/
             _Animator.SetInteger("Attack", 1);
             BasicAttack(target);
+            gameloop.DebugText.text = "Did attack";
             yield return new WaitWhile(() => _Animator.GetCurrentAnimatorStateInfo(0).IsName("anim_state"));
+            gameloop.DebugText.text = "Done waiting";
             _Animator.SetInteger("Attack", 0);
         }
         if (ascension == Ascensions.Medusa)

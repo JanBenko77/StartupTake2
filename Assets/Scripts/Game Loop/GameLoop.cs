@@ -21,6 +21,7 @@ public class GameLoop : MonoBehaviour
 
     [SerializeField]
     public TMP_Text InfoText;
+    public TMP_Text DebugText;
 
     public TMP_Text PlayerHealthText;
     public TMP_Text EnemyHealthText;

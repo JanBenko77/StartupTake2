@@ -173,17 +173,25 @@ public class SelectAction : MonoBehaviour
         {
             iteration = 0;
             RandomEnemy1Actions();
+            gameLoop.DebugText.text = "RandomEnemy1Actions Triggered";
             RandomEnemy2Actions();
+            gameLoop.DebugText.text = "RandomEnemy2Actions Triggered";
             BothActionsSelected();
+            gameLoop.DebugText.text = "BothActionsSelected Triggered";
         }
     }
 
     private void RandomEnemy1Actions()
     {
+        gameLoop.DebugText.text = "1";
         enemy1 = gameLoop.characters.Find((x) => x.characterData.characterName == "Enemy1");
+        gameLoop.DebugText.text = "2";
         EnemyAI ai = enemy1.GetComponent<EnemyAI>();
+        gameLoop.DebugText.text = "3";
         selectedActionEnemy1 = ai.ChooseRandomAbility();
+        gameLoop.DebugText.text = "4";
         selectedTargetEnemy1 = ai.ChooseRandomTarget();
+        gameLoop.DebugText.text = "5";
     }
 
     private void RandomEnemy2Actions()

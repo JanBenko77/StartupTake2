@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012a674df14f5084d9462d66f40fedd6, type: 3}
+  m_Name: P01_C009
+  m_EditorClassIdentifier: 
+  characterName: Oni
+  level: 0
+  description: 
+  mythology: 2
+  expansion: 0
+  health: 108
+  speed: 0
+  damage: 0
+  defence: 0
+  dodge: 0
+  hitChance: 0
+  passive: 0
+  ability_1: 0
+  ability_2: 0
+  ascension: 0
+  prefab: {fileID: 1101577492822206595, guid: ab609a50ea7759144a6b405a701d1728, type: 3}

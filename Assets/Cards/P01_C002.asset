@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acef41527a1cdf04b87b3da867bd7d6c, type: 3}
+  m_Name: P01_C002
+  m_EditorClassIdentifier: 
+  characterName: Faun
+  level: 0
+  description: 
+  mythology: 1
+  expansion: 0
+  health: 101
+  speed: 0
+  damage: 0
+  defence: 0
+  dodge: 0
+  hitChance: 0
+  passive: 0
+  ability_1: 0
+  ability_2: 0
+  ascension: 0
+  prefab: {fileID: 1101577492822206595, guid: 8642c679cb0b63046856d8ba8c5024b5, type: 3}

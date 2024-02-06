@@ -33,20 +33,18 @@ public class DisplayInventory : MonoBehaviour
     }
     public void CreateDisplay()
     {
-        var text1 = Instantiate(textPrefab, Vector3.zero, Quaternion.identity, transform);
-        text1.GetComponent<TextMeshProUGUI>().text = "Collected:";
         for (int i = 0; i < collectedInventory.Container.Count; ++i)
         {
             var obj = Instantiate(collectedInventory.Container[i].card.prefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             GetTextChild(obj, "health").text = "health: " + collectedInventory.Container[i].card.health.ToString();
             GetTextChild(obj, "characterName").text = collectedInventory.Container[i].card.characterName;
-            start_uncol = new Vector3(0, obj.GetComponent<RectTransform>().position.y, 0);
+            start_uncol = new Vector3(0, obj.GetComponent<RectTransform>().localPosition.y, 0);
         }
         for (int i = 0; i < uncollectedInventory.Container.Count; ++i)
         {
             var obj = Instantiate(uncollectedInventory.Container[i].card.prefab, Vector3.zero, Quaternion.identity, transform);
-            obj.GetComponent<RectTransform>().localPosition = GetPosition(i) - start_uncol;
+            obj.GetComponent<RectTransform>().localPosition = GetPosition(i) + start_uncol - new Vector3 (0, cardHeight, 0);
             GetTextChild(obj, "health").text = "health: " + uncollectedInventory.Container[i].card.health.ToString();
             GetTextChild(obj, "characterName").text = uncollectedInventory.Container[i].card.characterName;
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -8,6 +9,8 @@ public class ApplyChangesState : BaseState
     private GameLoop gameLoop;
 
     private ApplyActions applyActionsScript;
+    public TMP_Text DebugText;
+
 
     public ApplyChangesState(GameLoop loop)
     {
@@ -18,17 +21,15 @@ public class ApplyChangesState : BaseState
 
     override public void Enter()
     {
+        gameLoop.DebugText.text = "10";
         applyActionsScript.enabled = true;
-        applyActionsScript.ExecuteActions();
+        gameLoop.StartCoroutine(applyActionsScript.ExecuteActions());
         stateIsOver = false;
-
         gameLoop.StartCoroutine(EnterCoroutine());
     }
 
     override public IEnumerator EnterCoroutine()
     {
-        
-
         yield return null;
     }
 

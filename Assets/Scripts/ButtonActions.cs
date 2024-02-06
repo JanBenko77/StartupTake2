@@ -8,9 +8,11 @@ public class ButtonActions : MonoBehaviour
     void Update()
     { }
 
+    
+
     public void LoadPlayScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 

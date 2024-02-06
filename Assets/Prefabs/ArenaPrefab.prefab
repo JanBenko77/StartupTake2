@@ -24734,6 +24734,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
         type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+        type: 3}
+      propertyPath: attack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+        type: 3}
+      propertyPath: _Animator
+      value: 
+      objectReference: {fileID: 7518494040308282963}
+    - target: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+        type: 3}
       propertyPath: characterData
       value: 
       objectReference: {fileID: 11400000, guid: fb919a305a2061747906f520e4847700,
@@ -24939,6 +24954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
@@ -25344,6 +25364,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Small_FX (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -25748,6 +25773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Small_FX (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -26142,8 +26172,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7701149067879484953, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 539412800512997642}
   m_SourcePrefab: {fileID: 100100000, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe, type: 3}
+--- !u!114 &4272331973315674774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 3140399254828897324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4704865495205272117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988c1a12968b4b7459d2f9a15eb4773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4704865495205272117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701149067879484953, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 3140399254828897324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &539412800512997642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4704865495205272117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3c3678e81e5354f8781888676301c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 4272331973315674774}
 --- !u!4 &6621713797713973114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8102536370141076310, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
@@ -26252,6 +26317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
@@ -26567,6 +26637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: lowpolyModelDwarf_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 2335506997885018226, guid: 3b544e7add803d94ba7fac9f4eb1be02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3108244128355351240, guid: 3b544e7add803d94ba7fac9f4eb1be02,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -26637,6 +26712,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9061980521284608178, guid: 3b544e7add803d94ba7fac9f4eb1be02,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f434b234cd576d64fb0103e874936b79, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26656,6 +26736,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9044832484157133480}
     m_Modifications:
+    - target: {fileID: 3039429532510781142, guid: 6bdfd67e1ab79ae4abf473bd51c91519,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d9e57c5a134db2841a36f8a7b8f93a63, type: 2}
     - target: {fileID: 8612506975075270166, guid: 6bdfd67e1ab79ae4abf473bd51c91519,
         type: 3}
       propertyPath: m_Name
@@ -26739,6 +26824,12 @@ PrefabInstance:
 --- !u!4 &4519118865485704233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8993149535716844716, guid: 6bdfd67e1ab79ae4abf473bd51c91519,
+    type: 3}
+  m_PrefabInstance: {fileID: 4789920636406696069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7518494040308282963 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3039429532510781142, guid: 6bdfd67e1ab79ae4abf473bd51c91519,
     type: 3}
   m_PrefabInstance: {fileID: 4789920636406696069}
   m_PrefabAsset: {fileID: 0}
@@ -26841,7 +26932,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1469498356363295599}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7701149067879484953, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4076419260756652633}
   m_SourcePrefab: {fileID: 100100000, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe, type: 3}
 --- !u!4 &3168706145336759724 stripped
 Transform:
@@ -26849,6 +26944,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6595658634071641850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3555458672951656675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701149067879484953, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6595658634071641850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4076419260756652633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555458672951656675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3c3678e81e5354f8781888676301c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 5428759108669413440}
+--- !u!114 &5428759108669413440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1215601572629452474, guid: ba9f7054fe96e6b4a8cd3229ea2ea4fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6595658634071641850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555458672951656675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 988c1a12968b4b7459d2f9a15eb4773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6707584415633222924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26951,6 +27077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
@@ -27356,6 +27487,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Small_FX (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -27759,6 +27895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
@@ -28164,6 +28305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_Small_FX (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -28567,6 +28713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fire_Small_FX (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723444422625680322, guid: 1ccaecc0d7c334429b161837dada6bbe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2781940586125067896, guid: 1ccaecc0d7c334429b161837dada6bbe,
         type: 3}
@@ -29041,6 +29192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArenaPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3672548509089925874, guid: 0e1a66f440bd3fe45b8cc87f3b461040,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -29187,6 +29343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: water
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142362801611750220, guid: 6d07eedb1e9f3ed4d8f9506a1cb1fa57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

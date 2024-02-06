@@ -60,6 +60,7 @@ Library: C:\Users\tdakk\OneDrive\Bureaublad\StartupTake2\Temp\BurstOutput\tempbu
 --assembly-defines=Unity.XR.OpenXR.Features.OculusQuestSupport;
 --assembly-defines=Unity.XR.OpenXR.Features.RuntimeDebugger;
 --assembly-defines=UnityEngine;
+--assembly-defines=zxing.unity;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\tdakk\OneDrive\Bureaublad\StartupTake2\Temp\Burst
 --debug=Full
@@ -130,6 +131,7 @@ Library: C:\Users\tdakk\OneDrive\Bureaublad\StartupTake2\Temp\BurstOutput\tempbu
 --assembly-defines=Unity.XR.OpenXR.Features.OculusQuestSupport;
 --assembly-defines=Unity.XR.OpenXR.Features.RuntimeDebugger;
 --assembly-defines=UnityEngine;
+--assembly-defines=zxing.unity;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\tdakk\OneDrive\Bureaublad\StartupTake2\Temp\Burst
 --debug=Full

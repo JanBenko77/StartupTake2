@@ -10,14 +10,11 @@ public class HealthBar : MonoBehaviour
     private Image healthbar;
     public Character character;
 
-    public TMP_Text debugText;
-
     float healthPercentage;
 
     void Start()
     {
         character = GetComponent<Character>();
-        debugText = GameObject.Find("SecondTest").GetComponent<TMP_Text>();
     }
 
     void Update()
